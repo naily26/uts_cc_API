@@ -19,9 +19,18 @@ class ExampleController extends Controller
         return 'none';
     }
 
-    public function getImage()
+    public function event()
     {
-        $data = DB::table('gambar')->get();
+        $data = DB::table('event')->get();
+        return response()->json(
+                    [
+                        'status' => 'success',
+                        'result' => $data,
+                    ], 200);
+    }
+    public function about()
+    {
+        $data = DB::table('about')->get();
         return response()->json(
                     [
                         'status' => 'success',
